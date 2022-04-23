@@ -56,3 +56,11 @@ Route::get('/hapus/{id_literasi}','App\Http\Controllers\LiterasiController@hapus
 Route::post('/update','App\Http\Controllers\LiterasiController@update');
 Route::post('/store','App\Http\Controllers\LiterasiController@store');
 Auth::routes();
+
+Route::prefix('admin')->group(function(){
+    Route::get('/',[Admin\Auth\LoginController::class,'loginForm']);
+    Route::get('/login',[Admin\Auth\LoginController::class,'loginForm'])->name('admin.login');
+    Route::post('/login',[Admin\Auth\LoginController::class,'login'])->name('admin.login');
+    Route::get('/home',[Admin\HomeController::class,'index'])->name('admin.home');
+    Route::get('/logout',[Admin\Auth\LoginController::class,'logout'])->name('admin.logout');
+});
