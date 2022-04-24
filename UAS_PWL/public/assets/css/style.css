@@ -1,0 +1,43 @@
+body {font-family: roboto;}
+
+.navbar-literasi {margin: 40px 0px;}
+
+li.menu-list {margin: 0px 15px;text-align: end;}
+
+a.menu-link {text-decoration: none;color: #1F76C6;}
+
+.nav-menu {align-items: center;}
+
+.btn-lgn {color: white;background: #1F76C6;padding: 10px 20px;text-decoration: none;border-radius: 5px;}
+
+.btn-lgn:hover {opacity: 80%; color: white; text-decoration:none;}
+
+.btn-rgt {color: white; background: #DC9E00; padding: 10px 20px; text-decoration: none; border-radius: 5px;}
+
+.btn-rgt:hover {opacity: 80%; color: white; text-decoration:none;}
+
+.btn-post {background: #1f76c6;color: white;border: none;}
+
+.action-page {margin-bottom: 15px;}
+
+.sm-thumbnail {margin-top: 45px;}
+
+.pagin {margin: auto;}
+
+.margin-posting {margin-bottom: 20px;border-radius: 23px;}
+
+.input-judul {width: 45%;height: 30px;border-radius: 5px;border: solid 1px;}
+
+.text-posting {width: 100%;border-radius: 5px;}
+
+.action-post {text-align: right;}
+
+.cancel-post {padding: 5px 25px; margin-right: 20px;}
+
+.ready-post {padding: 5px 25px;}
+
+@media (max-width: 540px) {
+	.nav-menu {align-items: flex-start;}
+
+	li.menu-list {margin: 10px 0px;text-align: end;}
+}
