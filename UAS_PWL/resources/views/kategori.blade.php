@@ -68,7 +68,7 @@
             <hr width="30%" margin="auto">
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="margin-bottom: 100px;">
             
             <div class="content-kategori row">
                 <div class="list-kategori col-xl-4">
