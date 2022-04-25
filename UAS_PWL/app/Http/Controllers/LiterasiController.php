@@ -166,6 +166,11 @@ class LiterasiController extends Controller
 	$literasi = DB::table('literasi')->where('kategori', 'Review Buku')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
 		return view('hasil_kategori',['literasi' => $literasi]);
 	}
+    public function fantasi(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('kategori', 'Fantasi')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
+		return view('hasil_kategori',['literasi' => $literasi]);
+	}
 	public function fashion(Request $request)
 	{
 	$literasi = DB::table('literasi')->where('kategori', 'Fashion')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
