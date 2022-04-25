@@ -4,41 +4,43 @@
 @extends('layouts.app')
 
 @section('content')
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-light navbar-literasi bg-white shadow-sm">
             <a class="navbar-brand" href="{{ url('/') }}">
-
-                LiterasiKuy
+                {{-- {{ config('app.name', 'Laravel') }} SDFSDF --}}
+                <img src="assets/images/logo.svg" width="185px" height="50px">
             </a>
 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
-                    <a href="/kategori">Kategori</a>
-                </ul>
-                <ul class="navbar-nav me-auto">
-                    <a href="/bantuan">Bantuan</a>
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav nav-menu ml-auto">
+                    <li class="menu-list">
+                        <a class="menu-link" href="/kategori">Kategori</a>
+                    </li>
+                    <li class="menu-list">
+                        <a class="menu-link" href="/bantuan">Bantuan</a>
+                    </li>
+                    <!-- Right Side Of Navbar -->
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li class="nav-item menu-list">
+                                <a class="btn-lgn" href="{{ route('login') }}">{{ __('Sign In') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <li class="nav-item menu-list">
+                                <a class="btn-rgt" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        <li class="nav-item dropdown menu-list">
+                            <a id="navbarDropdown" class="dropdown-toggle btn-lgn" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
@@ -46,7 +48,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -58,37 +60,43 @@
                     @endguest
                 </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
     <div class="container">
+        <div class="head-tittle text-center">
+            <h3 class="sub-head">Kategori</h3>
+            <hr width="30%" margin="auto">
+        </div>
+
         <div class="row justify-content-center">
-
-            <div class="col-md-12">
-                @guest
-                @else
-                    <div class="col-md-4">
-                        <a class="btn btn-warning" href="/tambah" role="button"> + Posting Karya</a>
-                    </div>
-                @endguest
-                <div class="justify-content-center">
-
-                    <a href="/kategori/puisi"> Puisi </a>
-                    <br>
-                    <a href="/kategori/cerpen"> Cerita Pendek </a>
-                    <br>
-                    <a href="/kategori/cerita_rakyat"> Cerita Rakyat </a>
-                    <br>
-                    <a href="/kategori/dongeng"> Dongeng </a>
-                    <br>
-                    <a href="/kategori/kesehatan"> Kesehatan </a>
-                    <br>
-                    <a href="/kategori/sport"> Sport </a>
-                    <br>
-                    <a href="/kategori/review_buku"> Review Buku </a>
-                    <br>
-                    <a href="/kategori/review_buku"> Review Buku </a>
-                    <br>
-                    <a href="/kategori/fashion"> Fashion </a>
+            
+            <div class="content-kategori row">
+                <div class="list-kategori col-xl-4">
+                    <a href="/kategori/puisi" class="btn-kategori"><img class="img-kategori" src="assets/icon/puisi.png" width="35px">Puisi</a>
+                </div>
+                <div class="list-kategori col-xl-4">
+                    <a href="/kategori/cerpen" class="btn-kategori"><img class="img-kategori" src="assets/icon/cerpen.png" width="35px">Cerita Pendek</a>
+                </div>
+                <div class="list-kategori col-xl-4">
+                    <a href="/kategori/cerita_rakyat" class="btn-kategori"><img class="img-kategori" src="assets/icon/rakyat.png" width="35px">Cerita Rakyat</a>
+                </div>
+                <div class="list-kategori col-xl-4">
+                    <a href="/kategori/dongeng" class="btn-kategori"><img class="img-kategori" src="assets/icon/dongeng.png" width="35px">Dongeng</a>
+                </div>
+                <div class="list-kategori col-xl-4">
+                    <a href="/kategori/kesehatan" class="btn-kategori"><img class="img-kategori" src="assets/icon/kesehatan.png" width="35px">Kesehatan</a>
+                </div>
+                <div class="list-kategori col-xl-4">
+                    <a href="/kategori/sport" class="btn-kategori"><img class="img-kategori" src="assets/icon/olahraga.png" width="35px">Sport</a>
+                </div>
+                <div class="list-kategori col-xl-4">
+                    <a href="/kategori/review_buku" class="btn-kategori"><img class="img-kategori" src="assets/icon/review.png" width="35px">Review Buku</a>
+                </div>
+                <div class="list-kategori col-xl-4">
+                    <a href="/kategori/fantasi" class="btn-kategori"><img class="img-kategori" src="assets/icon/fantasi.png" width="35px">Fantasi</a>
+                </div>
+                <div class="list-kategori col-xl-4">
+                    <a href="/kategori/fashion" class="btn-kategori"><img class="img-kategori" src="assets/icon/fashion.png" width="35px">Fashion</a>
                 </div>
 
             </div>
