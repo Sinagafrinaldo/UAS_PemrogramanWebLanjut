@@ -48,6 +48,7 @@ Route::get('/kategori/dongeng','App\Http\Controllers\LiterasiController@dongeng'
 Route::get('/kategori/kesehatan','App\Http\Controllers\LiterasiController@kesehatan');
 Route::get('/kategori/sport','App\Http\Controllers\LiterasiController@sport');
 Route::get('/kategori/review_buku','App\Http\Controllers\LiterasiController@review_buku');
+Route::get('/kategori/fantasi','App\Http\Controllers\LiterasiController@fantasi');
 Route::get('/kategori/fashion','App\Http\Controllers\LiterasiController@fashion');
 
 Route::get('/postingan/{id_literasi}','App\Http\Controllers\LiterasiController@postingan');
