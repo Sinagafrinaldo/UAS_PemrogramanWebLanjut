@@ -71,32 +71,40 @@
         <div class="row justify-content-center" style="margin-bottom: 100px;">
             
             <div class="content-kategori row">
-                <div class="list-kategori col-xl-4">
-                    <a href="/kategori/puisi" class="btn-kategori"><img class="img-kategori" src="assets/icon/puisi.png" width="35px">Puisi</a>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4">
+                    <a href="/kategori/puisi" class="text-white"><img class="img-kategori" src="assets/icon/puisi.png" width="35px">Puisi</a>
                 </div>
-                <div class="list-kategori col-xl-4">
-                    <a href="/kategori/cerpen" class="btn-kategori"><img class="img-kategori" src="assets/icon/cerpen.png" width="35px">Cerita Pendek</a>
+                <div class="col-sm-1"></div>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4">
+                    <a href="/kategori/cerpen" class="text-white"><img class="img-kategori" src="assets/icon/cerpen.png" width="35px">Cerita Pendek</a>
                 </div>
-                <div class="list-kategori col-xl-4">
-                    <a href="/kategori/cerita_rakyat" class="btn-kategori"><img class="img-kategori" src="assets/icon/rakyat.png" width="35px">Cerita Rakyat</a>
+                <div class="col-sm-1"></div>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4">
+                    <a href="/kategori/cerita_rakyat" class="text-white"><img class="img-kategori" src="assets/icon/rakyat.png" width="35px">Cerita Rakyat</a>
                 </div>
-                <div class="list-kategori col-xl-4">
-                    <a href="/kategori/dongeng" class="btn-kategori"><img class="img-kategori" src="assets/icon/dongeng.png" width="35px">Dongeng</a>
+
+                <div class="list-kategori btn btn-primary col-lg-3 py-4">
+                    <a href="/kategori/dongeng" class="text-white"><img class="img-kategori" src="assets/icon/dongeng.png" width="35px">Dongeng</a>
                 </div>
-                <div class="list-kategori col-xl-4">
-                    <a href="/kategori/kesehatan" class="btn-kategori"><img class="img-kategori" src="assets/icon/kesehatan.png" width="35px">Kesehatan</a>
+                <div class="col-sm-1"></div>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4">
+                    <a href="/kategori/kesehatan" class="text-white"><img class="img-kategori" src="assets/icon/kesehatan.png" width="35px">Kesehatan</a>
                 </div>
-                <div class="list-kategori col-xl-4">
-                    <a href="/kategori/sport" class="btn-kategori"><img class="img-kategori" src="assets/icon/olahraga.png" width="35px">Sport</a>
+                <div class="col-sm-1"></div>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4">
+                    <a href="/kategori/sport" class="text-white"><img class="img-kategori" src="assets/icon/olahraga.png" width="35px">Sport</a>
                 </div>
-                <div class="list-kategori col-xl-4">
-                    <a href="/kategori/review_buku" class="btn-kategori"><img class="img-kategori" src="assets/icon/review.png" width="35px">Review Buku</a>
+
+                <div class="list-kategori btn btn-primary col-lg-3 py-4">
+                    <a href="/kategori/review_buku" class="text-white"><img class="img-kategori" src="assets/icon/review.png" width="35px">Review Buku</a>
                 </div>
-                <div class="list-kategori col-xl-4">
-                    <a href="/kategori/fantasi" class="btn-kategori"><img class="img-kategori" src="assets/icon/fantasi.png" width="35px">Fantasi</a>
+                <div class="col-sm-1"></div>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4">
+                    <a href="/kategori/fantasi" class="text-white"><img class="img-kategori" src="assets/icon/fantasi.png" width="35px">Fantasi</a>
                 </div>
-                <div class="list-kategori col-xl-4">
-                    <a href="/kategori/fashion" class="btn-kategori"><img class="img-kategori" src="assets/icon/fashion.png" width="35px">Fashion</a>
+                <div class="col-sm-1"></div>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4">
+                    <a href="/kategori/fashion" class="text-white"><img class="img-kategori" src="assets/icon/fashion.png" width="35px">Fashion</a>
                 </div>
 
             </div>
