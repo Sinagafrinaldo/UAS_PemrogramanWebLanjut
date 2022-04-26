@@ -55,12 +55,12 @@ class LiterasiController extends Controller
 
 		]);
 		$gambar = $request->image->getClientOriginalName();
-
+		$content = $request->input('isi');
 		$image = $request->image->storeAs('thumbnail', $gambar);
 		DB::table('literasi')->insert([
 			'judul' => $request->judul,
 			'kategori' => $request->kategori,
-			'isi' => $request->isi,
+			'isi' => $content,
             'name' =>$request->name,
 			'image' =>$gambar
 		]);
