@@ -48,7 +48,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -62,49 +62,59 @@
             </div>
         </nav>
     </div>
+    <div class="text-center" style="background-color: #E8F4FF; color: #1F76C6; margin-top: -40px;">
+        <h1 style="padding: 30px">Kategori
+            <hr width="40%" margin="auto">
+        </h1>
+
+    </div>
     <div class="container">
-        <div class="head-tittle text-center">
-            <h3 class="sub-head">Kategori</h3>
-            <hr width="30%" margin="auto">
-        </div>
+        <div class="row justify-content-center" style="margin-bottom: 50px;">
 
-        <div class="row justify-content-center" style="margin-bottom: 100px;">
-            
             <div class="content-kategori row">
-                <div class="list-kategori btn btn-primary col-lg-3 py-4">
-                    <a href="/kategori/puisi" class="text-white"><img class="img-kategori" src="assets/icon/puisi.png" width="35px">Puisi</a>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4 " style="margin-bottom: 20px">
+                    <a href="/kategori/puisi" class="text-white"><img class="img-kategori" src="assets/icon/puisi.png"
+                            width="35px">Puisi</a>
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4">
-                    <a href="/kategori/cerpen" class="text-white"><img class="img-kategori" src="assets/icon/cerpen.png" width="35px">Cerita Pendek</a>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4" style="margin-bottom: 20px">
+                    <a href="/kategori/cerpen" class="text-white"><img class="img-kategori"
+                            src="assets/icon/cerpen.png" width="35px">Cerita Pendek</a>
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4">
-                    <a href="/kategori/cerita_rakyat" class="text-white"><img class="img-kategori" src="assets/icon/rakyat.png" width="35px">Cerita Rakyat</a>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4" style="margin-bottom: 20px">
+                    <a href="/kategori/cerita_rakyat" class="text-white"><img class="img-kategori"
+                            src="assets/icon/rakyat.png" width="35px">Cerita Rakyat</a>
                 </div>
 
-                <div class="list-kategori btn btn-primary col-lg-3 py-4">
-                    <a href="/kategori/dongeng" class="text-white"><img class="img-kategori" src="assets/icon/dongeng.png" width="35px">Dongeng</a>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4" style="margin-bottom: 20px">
+                    <a href="/kategori/dongeng" class="text-white"><img class="img-kategori"
+                            src="assets/icon/dongeng.png" width="35px">Dongeng</a>
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4">
-                    <a href="/kategori/kesehatan" class="text-white"><img class="img-kategori" src="assets/icon/kesehatan.png" width="35px">Kesehatan</a>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4" style="margin-bottom: 20px">
+                    <a href="/kategori/kesehatan" class="text-white"><img class="img-kategori"
+                            src="assets/icon/kesehatan.png" width="35px">Kesehatan</a>
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4">
-                    <a href="/kategori/sport" class="text-white"><img class="img-kategori" src="assets/icon/olahraga.png" width="35px">Sport</a>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4" style="margin-bottom: 20px">
+                    <a href="/kategori/sport" class="text-white"><img class="img-kategori"
+                            src="assets/icon/olahraga.png" width="35px">Sport</a>
                 </div>
 
-                <div class="list-kategori btn btn-primary col-lg-3 py-4">
-                    <a href="/kategori/review_buku" class="text-white"><img class="img-kategori" src="assets/icon/review.png" width="35px">Review Buku</a>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4" style="margin-bottom: 20px">
+                    <a href="/kategori/review_buku" class="text-white"><img class="img-kategori"
+                            src="assets/icon/review.png" width="35px">Review Buku</a>
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4">
-                    <a href="/kategori/fantasi" class="text-white"><img class="img-kategori" src="assets/icon/fantasi.png" width="35px">Fantasi</a>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4" style="margin-bottom: 20px">
+                    <a href="/kategori/fantasi" class="text-white"><img class="img-kategori"
+                            src="assets/icon/fantasi.png" width="35px">Fantasi</a>
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4">
-                    <a href="/kategori/fashion" class="text-white"><img class="img-kategori" src="assets/icon/fashion.png" width="35px">Fashion</a>
+                <div class="list-kategori btn btn-primary col-lg-3 py-4" style="margin-bottom: 20px">
+                    <a href="/kategori/fashion" class="text-white"><img class="img-kategori"
+                            src="assets/icon/fashion.png" width="35px">Fashion</a>
                 </div>
 
             </div>
