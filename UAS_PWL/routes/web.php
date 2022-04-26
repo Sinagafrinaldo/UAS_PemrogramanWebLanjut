@@ -59,9 +59,17 @@ Route::post('/store','App\Http\Controllers\LiterasiController@store');
 Auth::routes();
 
 Route::prefix('admin')->group(function(){
-    Route::get('/',[Admin\Auth\LoginController::class,'loginForm']);
-    Route::get('/login',[Admin\Auth\LoginController::class,'loginForm'])->name('admin.login');
-    Route::post('/login',[Admin\Auth\LoginController::class,'login'])->name('admin.login');
-    Route::get('/home',[Admin\HomeController::class,'index'])->name('admin.home');
-    Route::get('/logout',[Admin\Auth\LoginController::class,'logout'])->name('admin.logout');
+    Route::get('/',[App\Http\Controllers\Admin\Auth\LoginController::class,'loginForm']);
+    Route::get('/login',[App\Http\Controllers\Admin\Auth\LoginController::class,'loginForm'])->name('admin.login');
+    Route::post('/login',[App\Http\Controllers\Admin\Auth\LoginController::class,'login'])->name('admin.login');
+    Route::get('/home',[App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin.home');
+    Route::get('/logout',[App\Http\Controllers\Admin\Auth\LoginController::class,'logout'])->name('admin.logout');
+    Route::get('/users',[App\Http\Controllers\Admin\HomeController::class,'users'])->name('admin.users');
+    Route::get('/users/hapus-user/{id}',[App\Http\Controllers\Admin\HomeController::class,'hapus_user'])->name('admin.users.hapus-user');
+    Route::get('/postingan/hapus-postingan/{id_literasi}',[App\Http\Controllers\Admin\HomeController::class,'hapus_postingan']);
+    Route::get('/postingan/edit-postingan/{id_literasi}',[App\Http\Controllers\Admin\HomeController::class,'edit']);
+    Route::get('/postingan/{id_literasi}',[App\Http\Controllers\Admin\HomeController::class,'postingan']);
+    Route::post('/update',[App\Http\Controllers\Admin\HomeController::class,'update'])->name('admin.update');
+    Route::get('/cari',[App\Http\Controllers\Admin\HomeController::class,'cari'])->name('admin.cari');
+
 });
