@@ -48,7 +48,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -74,33 +74,34 @@
                             <a class="btn btn-warning btn-post" href="/tambah" role="button"> + Posting Karya</a>
                         </div>
                     @endguest
-                    
-                        <div class="col-12 col-md-6 ml-auto">
-                            <form action="/cari2" method="GET">
-                                <div class="input-group">
-                                    <input type="text" name="cari" id="form1" placeholder="Masukkan kata kunci .."
-                                        class="form-control" value="{{ old('cari') }}">
-                                    <input class="btn btn-primary ml-2" type="submit" value="CARI">
-                                </div>
-                            </form>
-                        </div>
+
+                    <div class="col-12 col-md-6 ml-auto">
+                        <form action="/cari2" method="GET">
+                            <div class="input-group">
+                                <input type="text" name="cari" id="form1" placeholder="Masukkan kata kunci .."
+                                    class="form-control" value="{{ old('cari') }}">
+                                <input class="btn btn-primary ml-2" type="submit" value="CARI">
+                            </div>
+                        </form>
+                    </div>
 
                 </div>
-                    
-                
+
+
 
 
                 @foreach ($literasi as $p)
                     <div class="card" style="background-color: #E8F4FF">
                         <div class="row justify-content-center">
                             <div class="col-md-3">
-                                <img src="/storage/thumbnail/{{ $p->image }}" class="card-img-top sm-thumbnail" alt="...">
+                                <img src="/storage/thumbnail/{{ $p->image }}" class="card-img-top sm-thumbnail"
+                                    alt="...">
                             </div>
 
                             <div class="card-body col-md-8">
                                 <h4 class="card-title">{{ $p->judul }}</h4>
                                 <h6 class="card-category">{{ $p->kategori }}</h6>
-                                <p style="text-align:justify" class="card-text">{{ Str::limit($p->isi, 300) }}
+                                <p style="text-align:justify" class="card-text">{!! Str::limit($p->isi, 100) !!}
                                 </p>
 
                                 <div class="row">
@@ -122,7 +123,7 @@
             <div class="pagin">
                 {{ $literasi->links() }}
             </div>
-            
+
         </div>
     </div>
 @endsection
