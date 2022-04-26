@@ -4,45 +4,43 @@
 @extends('layouts.app')
 
 @section('content')
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-light navbar-literasi bg-white shadow-sm">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{-- {{ config('app.name', 'Laravel') }} SDFSDF --}}
-                LiterasiKuy
+                <img src="/assets/images/logo.svg" width="185px" height="50px">
             </a>
-            {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button> --}}
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
-                    <a href="/kategori">Kategori</a>
-                </ul>
-                <ul class="navbar-nav me-auto">
-                    <a href="/bantuan">Bantuan</a>
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav nav-menu ml-auto">
+                    <li class="menu-list">
+                        <a class="menu-link" href="/kategori">Kategori</a>
+                    </li>
+                    <li class="menu-list">
+                        <a class="menu-link" href="/bantuan">Bantuan</a>
+                    </li>
+                    <!-- Right Side Of Navbar -->
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li class="nav-item menu-list">
+                                <a class="btn-lgn" href="{{ route('login') }}">{{ __('Sign In') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <li class="nav-item menu-list">
+                                <a class="btn-rgt" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        <li class="nav-item dropdown menu-list">
+                            <a id="navbarDropdown" class="dropdown-toggle btn-lgn" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
@@ -50,7 +48,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -59,12 +57,11 @@
                                 </form>
                             </div>
                         </li>
-
                     @endguest
                 </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -90,8 +87,10 @@
                 </div>
 
 
+
                 @foreach ($literasi as $p)
                     <div class="card" style="background-color: #E8F4FF">
+
                         <div class="row justify-content-center">
                             <div class="col-md-3">
                                 <img src="/storage/thumbnail/{{ $p->image }}" class="card-img-top" alt="...">
