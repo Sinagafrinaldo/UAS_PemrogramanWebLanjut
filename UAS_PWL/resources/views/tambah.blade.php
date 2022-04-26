@@ -48,7 +48,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -75,7 +75,7 @@
                     3. Menggunakan judul yang dapat menarik pembaca<br>
                     4. Gunakan kata yang tepat
                 </p>
-                    
+
             </div>
             <div class="card-body col-md-1"></div>
             <div class="card-body margin-posting" style="background-color: E8F4FF">
@@ -83,7 +83,7 @@
                     <form action="/store" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <label style="margin-top: 15px;">Judul</label><br>
-                        <input class="input-judul" type="text" name="judul" required="required">
+                        <input class="input-judul" type="text" name="judul">
                         <br>
                         <label style="margin-top: 15px;">Kategori</label><br>
                         <select name="kategori" class="input-judul">
@@ -110,13 +110,14 @@
                         @enderror
                         <br>
                         <label style="margin-top: 15px;">Isi</label><br>
-                        <textarea class="text-posting" type="text" name="isi" required="required"></textarea> <br />
+
+                        <textarea class="text-posting" id="isi" type="text" name="isi"></textarea> <br />
                         <br>
                         <div class="action-post">
                             <a href="/" class="btn btn-danger cancel-post">Batal</a>
                             <input type="submit" class="btn btn-primary ready-post" value="Posting">
                         </div>
-                            
+
                     </form>
                 </div>
 
@@ -124,4 +125,15 @@
         </div>
     </div>
     </div>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#isi'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endsection
