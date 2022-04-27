@@ -27,7 +27,7 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color:#F6F6F6">
 
     {{-- <main class="py-4"> --}}
     @yield('content')
