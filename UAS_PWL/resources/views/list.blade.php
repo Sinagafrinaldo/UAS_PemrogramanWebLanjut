@@ -8,7 +8,7 @@
         <nav class="navbar navbar-expand-sm navbar-light navbar-literasi bg-white shadow-sm">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{-- {{ config('app.name', 'Laravel') }} SDFSDF --}}
-                <img src="assets/images/logo.svg" width="185px" height="50px">
+                <img src="assets/images/logo.svg" width="185px" height="40px">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -67,7 +67,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-12">
-                <div class="row action-page">
+                <div class="row action-page" style="margin-top: -20">
                     @guest
                     @else
                         <div class="col-12 col-md-4">
@@ -91,33 +91,33 @@
 
 
                 @foreach ($literasi as $p)
-                    <div class="card" style="background-color: #E8F4FF">
-                        <div class="row justify-content-center">
-                            <div class="col-md-3">
-                                <img src="/storage/thumbnail/{{ $p->image }}" class="card-img-top sm-thumbnail"
-                                    alt="...">
-                            </div>
-
-                            <div class="card-body col-md-8">
-                                <h4 class="card-title">{{ $p->judul }}</h4>
-                                <h6 class="card-category">{{ $p->kategori }}</h6>
-                                <p style="text-align:justify" class="card-text">{!! Str::limit($p->isi, 100) !!}
-                                </p>
-
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <p>Oleh: {{ $p->name }}, {{ $p->waktu_post }}</p>
+                    <div class="shadow p-3 mb-5 bg-white rounded" style="margin-top: -12">
+                        <div class="card border-0">
+                            <div class="row justify-content-start">                       
+                                <div class="col-md-3 align-self-center">
+                                    <div class="rounded float-left">
+                                        <img src="/storage/thumbnail/{{ $p->image }}" class="card-img-top img-sm-thumbnail border-0" alt="...">
                                     </div>
-                                    <div class="col ms-auto">
-                                        <a href="/postingan/{{ $p->id_literasi }}">Baca Selengkapnya >>></a>
+                                </div>
+
+                                <div class="col-md-9 align-self-center">
+                                    <h4 class="card-title">{{ $p->judul }}</h4>
+                                    <h6 class="card-category">{{ $p->kategori }}</h6>
+                                    <p style="text-align:justify" class="card-text">{!! Str::limit($p->isi, 100) !!}
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <p>Oleh: {{ $p->name }}, {{ $p->waktu_post }}</p>
+                                        </div>
+                                        <div class="col ms-auto">
+                                            <a href="/postingan/{{ $p->id_literasi }}">Baca Selengkapnya >>></a>
+                                        </div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br>
                 @endforeach
             </div>
             <div class="pagin">
