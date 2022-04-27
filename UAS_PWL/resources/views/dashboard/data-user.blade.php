@@ -1,7 +1,7 @@
 @extends('layouts._dashboard.app')
 
 @section('content')
-    <h1>Data User</h1>
+    <h1 class="mt-1">Data User</h1>
     {{-- @extends('dashboard.data-post') --}}
 
     <table class="table table-striped">
