@@ -17,10 +17,13 @@
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href={{ asset('vendor/css/styles.css') }} rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
+
+     <!-- Styles -->
+     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color:#F6F6F6">
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
@@ -66,7 +69,7 @@
             </nav>
 
             <!-- Page content-->
-            <div class="container-fluid">
+            <div class="container-fluid" style="width:98%">
                 @yield('content')
             </div>
         </div>
