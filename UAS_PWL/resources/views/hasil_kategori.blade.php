@@ -93,7 +93,7 @@
 
                         <div class="row justify-content-center">
                             <div class="col-md-3">
-                                <img src="/storage/thumbnail/{{ $p->image }}" class="card-img-top" alt="...">
+                                <img src="/img/uploads/{{ $p->image }}" class="card-img-top" alt="...">
                             </div>
 
                             <div class="card-body col-md-8">
