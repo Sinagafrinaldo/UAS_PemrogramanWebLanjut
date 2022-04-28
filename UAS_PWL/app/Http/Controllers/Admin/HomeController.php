@@ -72,10 +72,10 @@ class HomeController extends Controller
 
  	public function update(Request $request)
 	{
-
+	$content = $request->input('isi');
 	DB::table('literasi')->where('id_literasi',$request->id_literasi)->update([
 			'judul' => $request->judul,
-			'isi' => $request->isi,
+			'isi' => $content,
 			'kategori' => $request->kategori
 		]);
 
