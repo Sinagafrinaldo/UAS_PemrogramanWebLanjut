@@ -48,7 +48,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -84,6 +84,9 @@
                         {{ csrf_field() }}
                         <label style="margin-top: 15px;">Judul</label><br>
                         <input class="input-judul" type="text" name="judul">
+                        @error('judul')
+                            <span class="text-danger">{{ $message }}; </span>
+                        @enderror
                         <br>
                         <label style="margin-top: 15px;">Kategori</label><br>
                         <select name="kategori" class="input-judul">
@@ -100,18 +103,24 @@
 
 
                         </select>
+                        @error('kategori')
+                            <span class="text-danger">{{ $message }}; </span>
+                        @enderror
                         <input type="text" name="name" hidden value="<?php echo $name; ?>">
                         <br>
                         <label style="margin-top: 15px;">Upload Thumbnail</label>
                         <br>
                         <input type="file" id="image" class="@error('image') is-invalid @enderror" name="image">
                         @error('image')
-                            <span>{{ $message }}; </span>
+                            <span class="text-danger">{{ $message }}; </span>
                         @enderror
                         <br>
                         <label style="margin-top: 15px;">Isi</label><br>
 
                         <textarea class="text-posting" id="isi" type="text" name="isi"></textarea> <br />
+                        @error('isi')
+                            <span class="text-danger">{{ $message }}; </span>
+                        @enderror
                         <br>
                         <div class="action-post">
                             <a href="/" class="btn btn-danger cancel-post">Batal</a>
