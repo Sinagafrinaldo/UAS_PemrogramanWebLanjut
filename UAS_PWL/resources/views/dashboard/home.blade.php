@@ -25,7 +25,7 @@
                 <div class="row justify-content-start">                       
                     <div class="col-md-3 align-self-center">
                         <div class="rounded float-left">
-                            <img src="/storage/thumbnail/{{ $p->image }}" class="card-img-top img-sm-thumbnail border-0" alt="...">
+                            <img src="/img/uploads/{{ $p->image }}" class="card-img-top img-sm-thumbnail border-0" alt="...">
                         </div>
                     </div>
 
