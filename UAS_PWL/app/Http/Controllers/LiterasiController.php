@@ -46,7 +46,12 @@ class LiterasiController extends Controller
 	{
 		// insert data ke table literasi
 	
-		
+       
+
+        // User::where('id', $user->id)->update([
+        //     'image' => $name
+        // ]);
+    
 		$this->validate($request, rules:[
 			'judul' => 'required',
 			'kategori' => 'required',
@@ -54,15 +59,20 @@ class LiterasiController extends Controller
 			'image' => 'required|mimes:jpg,jpeg,png'
 
 		]);
-		$gambar = $request->image->getClientOriginalName();
+		$img = $request->file('image');
+        $ext = $img->getClientOriginalExtension();
+        $name =  $request->image->getClientOriginalName();
+        $path = public_path('\img\uploads');
+        $img->move($path, $name);
+		// $gambar = $request->image->getClientOriginalName();
 		$content = $request->input('isi');
-		$image = $request->image->storeAs('thumbnail', $gambar);
+		// $image = $request->image->storeAs('thumbnail', $gambar);
 		DB::table('literasi')->insert([
 			'judul' => $request->judul,
 			'kategori' => $request->kategori,
 			'isi' => $content,
             'name' =>$request->name,
-			'image' =>$gambar
+			'image' =>$name
 		]);
 		return redirect('/home');
 	
