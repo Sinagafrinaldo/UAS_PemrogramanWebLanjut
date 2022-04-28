@@ -93,7 +93,7 @@
                             <hr width="30%" margin="auto" color="#1F76C6" style="opacity: 20%;">
                         </div>
                         <div class="post-thumbnail">
-                            <img src="/storage/thumbnail/{{ $p->image }}" width="100%" style="border-radius: 10px;"
+                            <img src="/img/uploads/{{ $p->image }}" width="100%" style="border-radius: 10px;"
                                 alt="...">
                             <div class="info">
                                 <p>Karya: {{ $p->name }} | Diposting: {{ $p->waktu_post }} | Kategori:
