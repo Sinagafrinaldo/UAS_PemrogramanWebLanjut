@@ -48,7 +48,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -99,7 +99,7 @@
                             <div class="card-body col-md-8">
                                 <h4 class="card-title">{{ $p->judul }}</h4>
                                 <h6 class="card-category">{{ $p->kategori }}</h6>
-                                <p style="text-align:justify" class="card-text">{{ Str::limit($p->isi, 300) }}
+                                <p style="text-align:justify" class="card-text">{!! Str::limit($p->isi, 100) !!}
                                 </p>
 
                                 <div class="row">
