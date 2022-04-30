@@ -6,7 +6,7 @@
         <div class="card mb-4 mt-4">
             <div class="mx-auto" style="width: 90%">
                 @foreach ($literasi as $p)
-                    <form action="{{ route('admin.update') }}" method="post">
+                    <form action="{{ route('admin.update') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label"><strong>Judul</strong></label>
@@ -31,7 +31,15 @@
                                 <option value="Fashion" name="Fashion">Fashion</option>
                             </select>
                         </div>
-
+                        <strong style="margin-top: 15px;">Thumbnail</strong>
+                        <br>
+                        <input type="file" id="image" class="@error('image') is-invalid @enderror" name="image">
+                        @error('image')
+                            <span class="text-danger">{{ $message }}; </span>
+                        @enderror
+                        <br><br>
+                        <img src="/img/uploads/{{ $p->image }}" class="card-img-top" style="width:20%; height: 20%;"
+                            alt="...">
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label"><strong>Isi</strong></label>
                             <div class="form-floating">
