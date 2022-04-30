@@ -11,7 +11,7 @@ class LiterasiController extends Controller
     {
     	$literasi = DB::table('literasi')
 		->orderby('waktu_post' , 'desc')
-		->paginate(3);
+		->paginate(3)->onEachSide(0);
 		return view('list',['literasi' => $literasi]);
  
     }
@@ -21,7 +21,7 @@ class LiterasiController extends Controller
 
 		$literasi = DB::table('literasi')
 		->orderby('waktu_post' , 'desc')
-		->paginate(3);
+		->paginate(3)->onEachSide(0);
  
 		return view('home',['literasi' => $literasi]);
  
@@ -56,7 +56,7 @@ class LiterasiController extends Controller
 			'judul' => 'required',
 			'kategori' => 'required',
 			'isi'=> 'required',
-			'image' => 'required|mimes:jpg,jpeg,png'
+			'image' => 'required|mimes:jpg,jpeg,png,bmp,gif,svg'
 
 		]);
 		$img = $request->file('image');
@@ -116,7 +116,8 @@ class LiterasiController extends Controller
 		->orwhere('isi','like',"%".$cari."%")
 		->orwhere('kategori','like',"%".$cari."%")
 		->orderby('waktu_post' , 'desc')
-		->paginate(3)->withQueryString();
+		
+		->paginate(3)->withQueryString()->onEachSide(0);
 
 		return view('home',['literasi' => $literasi]);
 
@@ -131,7 +132,7 @@ class LiterasiController extends Controller
 		->orwhere('isi','like',"%".$cari."%")
 		->orwhere('kategori','like',"%".$cari."%")
 		->orderby('waktu_post' , 'desc')
-		->paginate(3)->withQueryString();
+		->paginate(3)->withQueryString()->onEachSide(0);
 
 		return view('list',['literasi' => $literasi]);
 
@@ -143,47 +144,47 @@ class LiterasiController extends Controller
 	}
 	public function puisi(Request $request)
 	{
-	$literasi = DB::table('literasi')->where('kategori', 'Puisi')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
+	$literasi = DB::table('literasi')->where('kategori', 'Puisi')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString()->onEachSide(0);
 		return view('hasil_kategori',['literasi' => $literasi]);
 	}
 	public function cerpen(Request $request)
 	{
-	$literasi = DB::table('literasi')->where('kategori', 'Cerita Pendek')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
+	$literasi = DB::table('literasi')->where('kategori', 'Cerita Pendek')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString()->onEachSide(0);
 		return view('hasil_kategori',['literasi' => $literasi]);
 	}
 	public function cerita_rakyat(Request $request)
 	{
-	$literasi = DB::table('literasi')->where('kategori', 'Cerita Rakyat')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
+	$literasi = DB::table('literasi')->where('kategori', 'Cerita Rakyat')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString()->onEachSide(0);
 		return view('hasil_kategori',['literasi' => $literasi]);
 	}
 	public function dongeng(Request $request)
 	{
-	$literasi = DB::table('literasi')->where('kategori', 'Dongeng')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
+	$literasi = DB::table('literasi')->where('kategori', 'Dongeng')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString()->onEachSide(0);
 		return view('hasil_kategori',['literasi' => $literasi]);
 	}
 	public function kesehatan(Request $request)
 	{
-	$literasi = DB::table('literasi')->where('kategori', 'Kesehatan')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
+	$literasi = DB::table('literasi')->where('kategori', 'Kesehatan')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString()->onEachSide(0);
 		return view('hasil_kategori',['literasi' => $literasi]);
 	}
 	public function sport(Request $request)
 	{
-	$literasi = DB::table('literasi')->where('kategori', 'Sport')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
+	$literasi = DB::table('literasi')->where('kategori', 'Sport')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString()->onEachSide(0);
 		return view('hasil_kategori',['literasi' => $literasi]);
 	}
 	public function review_buku(Request $request)
 	{
-	$literasi = DB::table('literasi')->where('kategori', 'Review Buku')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
+	$literasi = DB::table('literasi')->where('kategori', 'Review Buku')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString()->onEachSide(0);
 		return view('hasil_kategori',['literasi' => $literasi]);
 	}
     public function fantasi(Request $request)
 	{
-	$literasi = DB::table('literasi')->where('kategori', 'Fantasi')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
+	$literasi = DB::table('literasi')->where('kategori', 'Fantasi')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString()->onEachSide(0);
 		return view('hasil_kategori',['literasi' => $literasi]);
 	}
 	public function fashion(Request $request)
 	{
-	$literasi = DB::table('literasi')->where('kategori', 'Fashion')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString();
+	$literasi = DB::table('literasi')->where('kategori', 'Fashion')->orderby('waktu_post' , 'desc')->paginate(3)->withQueryString()->onEachSide(0);
 		return view('hasil_kategori',['literasi' => $literasi]);
 	}
 
