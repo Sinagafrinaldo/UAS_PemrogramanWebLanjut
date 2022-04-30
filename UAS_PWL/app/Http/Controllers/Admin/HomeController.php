@@ -16,14 +16,14 @@ class HomeController extends Controller
     public function index (){
         $literasi = DB::table('literasi')
 		->orderby('waktu_post' , 'desc')
-		->paginate(3);
+		->paginate(3)->onEachSide(0);
  
         return view('dashboard.home',['literasi' => $literasi] ); 
     }
     public function users (){
         $users = DB::table('users')
 		->orderby('created_at' , 'desc')
-		->paginate(3);
+		->paginate(3)->onEachSide(0);
 
         return view('dashboard.data-user',['users' => $users] ); 
     }
@@ -44,7 +44,7 @@ class HomeController extends Controller
 		->orwhere('isi','like',"%".$cari."%")
 		->orwhere('kategori','like',"%".$cari."%")
 		->orderby('waktu_post' , 'desc')
-		->paginate(3)->withQueryString();
+		->paginate(3)->withQueryString()->onEachSide(0);
 
 	return view('dashboard.home',['literasi' => $literasi] ); 
 
@@ -70,14 +70,36 @@ class HomeController extends Controller
 	
 	}
 
- 	public function update(Request $request)
+	public function update(Request $request)
 	{
 	$content = $request->input('isi');
+	
+	$this->validate($request, rules:[
+			'judul' => 'required',
+			'kategori' => 'required',
+			'isi'=> 'required',
+			'image' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg'
+
+	]);
+	if($request->hasFile('image')){
+		$img = $request->file('image');
+		$ext = $img->getClientOriginalExtension();
+		$name =  $request->image->getClientOriginalName();
+		$path = public_path('\img\uploads');
+		$img->move($path, $name);
+		DB::table('literasi')->where('id_literasi',$request->id_literasi)->update([
+			'judul' => $request->judul,
+			'isi' => $content,
+			'kategori' => $request->kategori,
+			'image' =>$name
+		]);
+	}else{
 	DB::table('literasi')->where('id_literasi',$request->id_literasi)->update([
 			'judul' => $request->judul,
 			'isi' => $content,
 			'kategori' => $request->kategori
 		]);
+	}
 
 		return redirect('admin/home');
 	}
