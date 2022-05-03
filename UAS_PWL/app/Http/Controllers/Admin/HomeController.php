@@ -103,4 +103,22 @@ class HomeController extends Controller
 
 		return redirect('admin/home');
 	}
+	public function laporan (){
+        $laporan = DB::table('request_laporan')
+		->orderby('waktu' , 'desc')
+		->paginate(3)->onEachSide(0);
+
+        return view('dashboard.laporan-masalah',['laporan' => $laporan] ); 
+    }
+	public function update_status (Request $request){
+    DB::table('request_laporan')->where('id_laporan',$request->id_laporan)->update([
+			'status' => $request->status_kategori	
+		]);
+		return redirect('admin/laporan-masalah');
+    }
+	public function hapus_laporan ( $id_laporan){
+    DB::table('request_laporan')->where('id_laporan',$id_laporan)->delete();
+		return redirect('admin/laporan-masalah');
+    }
+
 }
