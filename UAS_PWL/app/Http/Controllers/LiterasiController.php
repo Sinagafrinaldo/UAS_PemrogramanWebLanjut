@@ -1,92 +1,196 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+namespace App\Http\Controllers;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/kategori', function () {
-    return view('kategori');
-});
-
-Route::get('/bantuan', function () {
-    return view('bantuan');
-});
-Route::get('/','App\Http\Controllers\LiterasiController@index');
-Route::get('/admin','App\Http\Controllers\LiterasiController@admin');
-Auth::routes();
-Route::get('/tambah','App\Http\Controllers\LiterasiController@tambah');
-Route::get('/tambah', function()
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+class LiterasiController extends Controller
 {
-    if(Auth::check()) 
+    //
+    public function index()
     {
-        $name = Auth::user()->name;
-        return view('tambah', ['name' => $name] );
-    }else{
-        return view('/auth/login');
+    	$literasi = DB::table('literasi')
+		->orderby('waktu_post' , 'desc')
+		->paginate(10)->onEachSide(0);
+		return view('list',['literasi' => $literasi]);
     }
-});
-
-
-Route::get('/cari','App\Http\Controllers\LiterasiController@cari');
-Route::get('/cari2','App\Http\Controllers\LiterasiController@cari2');
-Route::get('/home','App\Http\Controllers\LiterasiController@home');
-Route::get('/kategori/puisi','App\Http\Controllers\LiterasiController@puisi');
-Route::get('/kategori/cerpen','App\Http\Controllers\LiterasiController@cerpen');
-Route::get('/kategori/cerita_rakyat','App\Http\Controllers\LiterasiController@cerita_rakyat');
-Route::get('/kategori/dongeng','App\Http\Controllers\LiterasiController@dongeng');
-Route::get('/kategori/kesehatan','App\Http\Controllers\LiterasiController@kesehatan');
-Route::get('/kategori/sport','App\Http\Controllers\LiterasiController@sport');
-Route::get('/kategori/review_buku','App\Http\Controllers\LiterasiController@review_buku');
-Route::get('/kategori/fantasi','App\Http\Controllers\LiterasiController@fantasi');
-Route::get('/kategori/fashion','App\Http\Controllers\LiterasiController@fashion');
-
-Route::get('/riwayat-laporan','App\Http\Controllers\LiterasiController@riwayat_laporan');
-Route::post('/kirim','App\Http\Controllers\LiterasiController@laporan_kirim');
-Route::get('/riwayat-laporan/hapus-laporan/{id_laporan}','App\Http\Controllers\LiterasiController@hapus_laporan');
-Route::get('/lapor-masalah', function()
-{
-    if(Auth::check()) 
+	public function home()
     {
-        $name = Auth::user()->name;
-        return view('lapor-masalah', ['name' => $name] );
-    }else{
-        return view('/auth/login');
+		$literasi = DB::table('literasi')
+		->orderby('waktu_post' , 'desc')
+		->paginate(10)->onEachSide(0);
+
+		return view('home',['literasi' => $literasi]);
+
     }
-});
+    public function tambah()
+	{
+	
+		// memanggil view tambah
+		return view('tambah');
+	
+	}
+    public function store(Request $request)
+	{
+		$this->validate($request, rules:[
+			'judul' => 'required',
+			'kategori' => 'required',
+			'isi'=> 'required',
+			'image' => 'required|mimes:jpg,jpeg,png,bmp,gif,svg'
 
+		]);
+		$img = $request->file('image');
+        $ext = $img->getClientOriginalExtension();
+        $name =  $request->image->getClientOriginalName();
+        $path = public_path('\img\uploads');
+        $img->move($path, $name);
+		$content = $request->input('isi');
+		$slug =  Str::slug($request->judul,"-");
+		DB::table('literasi')->insert([
+			'judul' => $request->judul,
+			'kategori' => $request->kategori,
+			'isi' => $content,
+            'name' =>$request->name,
+			'image' =>$name,
+			'slug' =>$slug
+		]);
+		return redirect('/home');
+	
+	}
 
-Route::get('/postingan/{slug}','App\Http\Controllers\LiterasiController@postingan');
-Route::get('/edit/{id_literasi}','App\Http\Controllers\LiterasiController@edit');
-Route::get('/hapus/{id_literasi}','App\Http\Controllers\LiterasiController@hapus');
-Route::post('/update','App\Http\Controllers\LiterasiController@update');
-Route::post('/store','App\Http\Controllers\LiterasiController@store');
-Auth::routes();
+	public function hapus($id_literasi)
+	{
+	
+		DB::table('literasi')->where('id_literasi',$id_literasi)->delete();
+			
+		
+		return redirect('/admin');
+	}
+	public function cari(Request $request)
+	{
+	
+		$cari = $request->cari;
 
-Route::prefix('admin')->group(function(){
-    Route::get('/',[App\Http\Controllers\Admin\Auth\LoginController::class,'loginForm']);
-    Route::get('/login',[App\Http\Controllers\Admin\Auth\LoginController::class,'loginForm'])->name('admin.login');
-    Route::post('/login',[App\Http\Controllers\Admin\Auth\LoginController::class,'login'])->name('admin.login');
-    Route::get('/home',[App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin.home');
-    Route::get('/logout',[App\Http\Controllers\Admin\Auth\LoginController::class,'logout'])->name('admin.logout');
-    Route::get('/users',[App\Http\Controllers\Admin\HomeController::class,'users'])->name('admin.users');
-    Route::get('/users/hapus-user/{id}',[App\Http\Controllers\Admin\HomeController::class,'hapus_user'])->name('admin.users.hapus-user');
-    Route::get('/postingan/hapus-postingan/{id_literasi}',[App\Http\Controllers\Admin\HomeController::class,'hapus_postingan']);
-    Route::get('/postingan/edit-postingan/{id_literasi}',[App\Http\Controllers\Admin\HomeController::class,'edit']);
-    Route::get('/postingan/{id_literasi}',[App\Http\Controllers\Admin\HomeController::class,'postingan']);
-    Route::post('/update',[App\Http\Controllers\Admin\HomeController::class,'update'])->name('admin.update');
-    Route::get('/cari',[App\Http\Controllers\Admin\HomeController::class,'cari'])->name('admin.cari');
-    Route::get('/laporan-masalah',[App\Http\Controllers\Admin\HomeController::class,'laporan'])->name('admin.laporan-masalah');
-    Route::post('/update-status',[App\Http\Controllers\Admin\HomeController::class,'update_status'])->name('admin.update-status');
+		$literasi = DB::table('literasi')
+		->where('judul','like',"%".$cari."%")
+		->orwhere('isi','like',"%".$cari."%")
+		->orwhere('kategori','like',"%".$cari."%")
+		->orderby('waktu_post' , 'desc')
+		
+		->paginate(10)->withQueryString()->onEachSide(0);
 
-    Route::get('/laporan-masalah/hapus-laporan/{id_laporan}',[App\Http\Controllers\Admin\HomeController::class,'hapus_laporan']);
-    
-});
+		return view('list',['literasi' => $literasi]);
+
+	}
+	public function cari2(Request $request)
+	{
+	
+		$cari = $request->cari;
+
+		$literasi = DB::table('literasi')
+		->where('judul','like',"%".$cari."%")
+		->orwhere('isi','like',"%".$cari."%")
+		->orwhere('kategori','like',"%".$cari."%")
+		->orderby('waktu_post' , 'desc')
+		->paginate(10)->withQueryString()->onEachSide(0);
+
+		return view('list',['literasi' => $literasi]);
+
+	}
+	public function postingan(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('slug',$request->slug)->get();
+		return view('postingan',['literasi' => $literasi]);
+	}
+	public function puisi(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('kategori', 'Puisi')->orderby('waktu_post' , 'desc')->paginate(10)->withQueryString()->onEachSide(0);
+		return view('hasil_kategori',['literasi' => $literasi]);
+	}
+	public function cerpen(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('kategori', 'Cerita Pendek')->orderby('waktu_post' , 'desc')->paginate(10)->withQueryString()->onEachSide(0);
+		return view('hasil_kategori',['literasi' => $literasi]);
+	}
+	public function cerita_rakyat(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('kategori', 'Cerita Rakyat')->orderby('waktu_post' , 'desc')->paginate(10)->withQueryString()->onEachSide(0);
+		return view('hasil_kategori',['literasi' => $literasi]);
+	}
+	public function dongeng(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('kategori', 'Dongeng')->orderby('waktu_post' , 'desc')->paginate(10)->withQueryString()->onEachSide(0);
+		return view('hasil_kategori',['literasi' => $literasi]);
+	}
+	public function kesehatan(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('kategori', 'Kesehatan')->orderby('waktu_post' , 'desc')->paginate(10)->withQueryString()->onEachSide(0);
+		return view('hasil_kategori',['literasi' => $literasi]);
+	}
+	public function sport(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('kategori', 'Sport')->orderby('waktu_post' , 'desc')->paginate(10)->withQueryString()->onEachSide(0);
+		return view('hasil_kategori',['literasi' => $literasi]);
+	}
+	public function review_buku(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('kategori', 'Review Buku')->orderby('waktu_post' , 'desc')->paginate(10)->withQueryString()->onEachSide(0);
+		return view('hasil_kategori',['literasi' => $literasi]);
+	}
+    public function fantasi(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('kategori', 'Fantasi')->orderby('waktu_post' , 'desc')->paginate(10)->withQueryString()->onEachSide(0);
+		return view('hasil_kategori',['literasi' => $literasi]);
+	}
+	public function fashion(Request $request)
+	{
+	$literasi = DB::table('literasi')->where('kategori', 'Fashion')->orderby('waktu_post' , 'desc')->paginate(10)->withQueryString()->onEachSide(0);
+		return view('hasil_kategori',['literasi' => $literasi]);
+	}
+	public function laporan_kirim(Request $request){
+		$content = $request->input('isi');
+		
+		$this->validate($request, rules:[
+				'judul' => 'required',
+				'isi'=> 'required',
+				'image' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg'
+
+		]);
+		if($request->hasFile('image')){
+			$img = $request->file('image');
+			$ext = $img->getClientOriginalExtension();
+			$name =  $request->image->getClientOriginalName();
+			$path = public_path('\img\upload-laporan');
+			$img->move($path, $name);
+			DB::table('request_laporan')->insert([
+				'judul_laporan' => $request->judul,
+				'isi_laporan' => $content,
+				'image_laporan' =>$name,
+				'name' =>$request->name,
+				'id_user'=>$request->id,
+				'status'=> 'Belum Ditanggapi'
+			]);
+			}else{
+			DB::table('request_laporan')->insert([
+				'judul_laporan' => $request->judul,
+				'isi_laporan' => $content,
+				'name' =>$request->name,
+				'id_user'=>$request->id,
+				'status'=> 'Belum Ditanggapi'
+				]);
+		}
+		return redirect('bantuan');
+	}
+	public function riwayat_laporan(Request $request)
+	{
+	$riwayat = DB::table('request_laporan')->get();
+		return view('riwayat-laporan',['riwayat' => $riwayat]);
+	}
+	public function hapus_laporan($id_laporan)
+	{
+	DB::table('request_laporan')->where('id_laporan',$id_laporan)->delete();
+		return redirect('riwayat-laporan');
+	}
+
+}
