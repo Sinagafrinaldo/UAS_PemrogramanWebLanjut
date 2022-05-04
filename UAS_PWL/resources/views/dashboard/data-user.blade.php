@@ -17,10 +17,13 @@
                 <td>{{ $p->email }}</td>
                 <td>{{ $p->created_at }}</td>
                 <td><a class="btn btn-danger" href="users/hapus-user/{{ $p->id }}"
-                        onclick="alert('Apakah anda yakin?')">Hapus</a>
+                        onclick="return confirm('Apakah anda yakin ingin menghapus?')">Hapus</a>
             </tr>
         @endforeach
 
     </table>
-    {{ $users->links() }}
+
+    <div class="pagination justify-content-center">
+        {{ $users->links() }}
+    </div>
 @endsection

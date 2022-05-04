@@ -81,7 +81,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/users/hapus-user/{id}',[App\Http\Controllers\Admin\HomeController::class,'hapus_user'])->name('admin.users.hapus-user');
     Route::get('/postingan/hapus-postingan/{id_literasi}',[App\Http\Controllers\Admin\HomeController::class,'hapus_postingan']);
     Route::get('/postingan/edit-postingan/{id_literasi}',[App\Http\Controllers\Admin\HomeController::class,'edit']);
-    Route::get('/postingan/{id_literasi}',[App\Http\Controllers\Admin\HomeController::class,'postingan']);
+    Route::get('/postingan/{slug}',[App\Http\Controllers\Admin\HomeController::class,'postingan']);
     Route::post('/update',[App\Http\Controllers\Admin\HomeController::class,'update'])->name('admin.update');
     Route::get('/cari',[App\Http\Controllers\Admin\HomeController::class,'cari'])->name('admin.cari');
     Route::get('/laporan-masalah',[App\Http\Controllers\Admin\HomeController::class,'laporan'])->name('admin.laporan-masalah');
