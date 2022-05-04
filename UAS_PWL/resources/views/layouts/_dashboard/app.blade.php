@@ -18,24 +18,28 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href={{ asset('vendor/css/styles.css') }} rel="stylesheet" />
 
-     <!-- Styles -->
-     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 </head>
 
 <body style="background-color:#F6F6F6">
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
-        <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading border-bottom bg-light"><strong>LiterasiKuy</strong></div>
+        <div class="border-end " id="sidebar-wrapper" style="background-color: #1c70bd;">
+            <div class="sidebar-heading border-bottom text-white"><strong>LiterasiKuy</strong></div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="
-                    {{ route('admin.home') }}">
+                <a class="list-group-item list-group-item-action text-white  p-3" href="
+                    {{ route('admin.home') }}" style="background-color: #1c70bd">
                     Data Post
                 </a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                    href="{{ route('admin.users') }}">
+                <a class="list-group-item list-group-item-action text-white p-3" href="{{ route('admin.users') }}"
+                    style="background-color: #1c70bd">
                     User
+                </a>
+                <a class="list-group-item list-group-item-action text-white p-3"
+                    href="{{ route('admin.laporan-masalah') }}" style="background-color: #1c70bd">
+                    Laporan Masalah
                 </a>
 
             </div>
@@ -52,7 +56,8 @@
                             class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
+                            <li class="nav-item active"><a class="nav-link"
+                                    href="{{ route('admin.home') }}">Home</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
