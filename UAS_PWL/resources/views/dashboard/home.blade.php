@@ -21,10 +21,11 @@
         @foreach ($literasi as $p)
             <div class="shadow p-3 mb-4 bg-white rounded">
                 <div class="card border-0">
-                    <div class="row justify-content-start">                       
+                    <div class="row justify-content-start">
                         <div class="col-md-3 align-self-center">
                             <div class="rounded float-left">
-                                <img src="/img/uploads/{{ $p->image }}" class="card-img-top img-sm-thumbnail border-0" alt="...">
+                                <img src="/img/uploads/{{ $p->image }}" class="card-img-top img-sm-thumbnail border-0"
+                                    alt="...">
                             </div>
                         </div>
 
@@ -39,16 +40,17 @@
                                     <p>Oleh: {{ $p->name }}, {{ $p->waktu_post }}</p>
                                 </div>
                                 <div class="col ms-auto">
-                                    <a href="/postingan/{{ $p->id_literasi }}">Baca Selengkapnya >>></a>
+                                    <a href="postingan/{{ $p->slug }}">Baca Selengkapnya >>></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <hr>
-                    
+
                     <div class="d-flex justify-content-end">
                         <a class="btn btn-secondary mx-2" href="postingan/edit-postingan/{{ $p->id_literasi }}">Edit</a>
-                        <a class="btn btn-danger" href="postingan/hapus-postingan/{{ $p->id_literasi }}">Hapus</a>
+                        <a class="btn btn-danger" href="postingan/hapus-postingan/{{ $p->id_literasi }}"
+                            onclick="return confirm('Apakah anda yakin?') ">Hapus</a>
                     </div>
 
                 </div>
