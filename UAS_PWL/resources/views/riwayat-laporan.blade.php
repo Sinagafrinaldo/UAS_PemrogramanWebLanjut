@@ -48,7 +48,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -113,7 +113,8 @@
                                                     <div class="btn btn-danger">Ditolak</div>
                                                 @endif
                                             </div> &emsp;
-                                            <a class="btn btn-danger col-sm-0"
+                                            <a onclick="return confirm('Apakah anda yakin?') "
+                                                class="btn btn-danger col-sm-0"
                                                 href="riwayat-laporan/hapus-laporan/{{ $p->id_laporan }}">Hapus</a>
                                         </div>
 
