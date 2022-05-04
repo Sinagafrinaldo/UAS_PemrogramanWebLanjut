@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
 @extends('layouts.app')
 
 @section('content')
@@ -39,15 +39,15 @@
                     @endif
                 @else
                     <li class="nav-item dropdown menu-list">
-                        <a id="navbarDropdown" class="dropdown-toggle btn-lgn" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="dropdown-toggle btn-lgn" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
@@ -60,44 +60,73 @@
             </ul>
         </div>
     </nav>
- 
+
     <div class="container" style="margin-top: -20;margin-bottom: -25">
-        <div class="shadow p-4 mb-5 bg-white rounded">     
+        <div class="shadow p-4 mb-5 bg-white rounded">
             <div class="text-center" style="color: #1F76C6;">
                 <h1 style="padding: 10px"><strong>Bantuan</strong>
                     <hr width="50%" margin="auto">
                 </h1>
-            </div>       
+            </div>
+            @guest
+            @else
+                <div class="row justify-content-between">
+                    <div>
+                        <a class="btn btn-post" href="/lapor-masalah" role="button">Laporkan Masalah</a>
+                    </div>
+
+                    {{-- @foreach ($users as $p) --}}
+                    {{-- <form action="/riwayat-request" method="post">
+                        {{ csrf_field() }}
+                        <input type="text" name="id" hidden value=" {{ auth()->user()->id }} ">
+
+                        <div>
+                            <input type="submit" class="btn btn-warning" href="/riwayat-request" role="button"
+                                value="Riwayat Laporan Masalah">
+                        </div>
+                    </form> --}}
+                    <div>
+                        <a class="btn btn-warning" href="/riwayat-laporan" role="button">Riwayat Laporan Masalah</a>
+                    </div>
+                    {{-- @endforeach --}}
+                </div>
+                <br>
+            @endguest
+
             <div class="row p-3 justify-content text-justify">
                 <div style="margin-bottom: 35">
-                    <p> &emsp; &emsp;Website ini merupakan wesbite yang dibuat dengan tujuan untuk meningkatkan literasi bagi para
-                        pelajar dimulai dari anak kecil, siswa/i sekolah dasar hingga mengeah atas, mahasiswa/i, dan masyarakat
-                        luas khususnya di Indonesia. Dengan adanya website diharapkan dapat membantu para pemuda/i untuk meningkatkan kosakata dalam
-                        berbicara dan menulis. Selain itu, adanya website ini juga membuka kesempatan bagi para pemuda/i yang
+                    <p> &emsp; &emsp;Website ini merupakan wesbite yang dibuat dengan tujuan untuk meningkatkan literasi
+                        bagi para
+                        pelajar dimulai dari anak kecil, siswa/i sekolah dasar hingga mengeah atas, mahasiswa/i, dan
+                        masyarakat
+                        luas khususnya di Indonesia. Dengan adanya website diharapkan dapat membantu para pemuda/i untuk
+                        meningkatkan kosakata dalam
+                        berbicara dan menulis. Selain itu, adanya website ini juga membuka kesempatan bagi para pemuda/i
+                        yang
                         memiliki kemampuan menulis atau sekedar berbagi informasi.
                     </p>
                 </div>
                 <div style="margin-bottom: 35">
                     <h5><strong>ANDA BERMINAT UNTUK KONTRIBUSI?</strong></h5>
                     <br>
-                    <p> Anda ingin berbagi informasi/wawasan ? Sangat mudah untuk menjadi anggota 
+                    <p> Anda ingin berbagi informasi/wawasan ? Sangat mudah untuk menjadi anggota
                         diwebsite ini yaitu dengan cara berikut :
                     </p>
                     <ul style="list-style-type: decimal;width:97%">
                         <li>
-                            Masuk ke Website ini dengan menu <b>“Login”</b>. Apabila Anda belum memiliki Aku, 
-                            Anda dapat melakukan pendaftaran Akun dengan mengisi formulir dengan baik dan 
-                            benar. 
+                            Masuk ke Website ini dengan menu <b>“Login”</b>. Apabila Anda belum memiliki Aku,
+                            Anda dapat melakukan pendaftaran Akun dengan mengisi formulir dengan baik dan
+                            benar.
                         </li>
                         <li>
                             Setelah itu, Anda bisa membuat postingan dengan memilih fitur <b>“Posting Karya”</b>.
                         </li>
                         <li>
-                            Kemudian pada saat melakukan posting, masukkan nama judul, isi, gambar yang mendukung artikel 
-                            tersebut sesuai dengan yang Anda inginkan. 
+                            Kemudian pada saat melakukan posting, masukkan nama judul, isi, gambar yang mendukung artikel
+                            tersebut sesuai dengan yang Anda inginkan.
                         </li>
                         <li>
-                            Lalu klik tombol <b>“Submit”</b> untuk melakukan pengiriman artikel / publish karya Anda. 
+                            Lalu klik tombol <b>“Submit”</b> untuk melakukan pengiriman artikel / publish karya Anda.
                         </li>
                     </ul>
                 </div>
@@ -110,7 +139,8 @@
                     <ul style="list-style-type: decimal;width:97%">
                         <li>Masuk ke dalam menu <b>“Kategori”.</b></li>
                         <li>Setelah itu, Anda bisa memilih kategori bacaan yang ingin Anda baca atau eksplorasi.</li>
-                        <li>Kemudian, web akan menampilkan daftar bacaan / artikel yang sesuai dengan kategori tersebut.</li>
+                        <li>Kemudian, web akan menampilkan daftar bacaan / artikel yang sesuai dengan kategori tersebut.
+                        </li>
                         <li>Pilih judul / bacaan yang menarik atau yang sedang Anda cari.</li>
                         <li>Bacalah artikel tersebut dengan santai dan rileks.</li>
                     </ul>
