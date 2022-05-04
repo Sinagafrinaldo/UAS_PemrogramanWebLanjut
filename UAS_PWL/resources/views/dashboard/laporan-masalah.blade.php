@@ -22,18 +22,11 @@
             <div class="shadow p-3 mb-4 bg-white rounded">
                 <div class="card border-0">
                     <div class="row justify-content">
-                        {{-- <div class="col-md-3 align-self-center">
-                            @if ($p->image_laporan != null)
-                                <div class="rounded float-left">
-                                    <img src="/img/upload-laporan/{{ $p->image_laporan }}"
-                                        class="card-img-top img-sm-thumbnail border-0" alt="...">
-                                </div>
-                            @endif
-                        </div> --}}
+
                         <div class="col-md " style="padding:30px">
                             <h4 class="card-title">{{ $p->judul_laporan }}</h4>
                             <hr>
-                            {{-- <h6 class="card-category">{{ $p->kategori_request }}</h6> --}}
+
                             <p class="text-justify">
                                 {!! $p->isi_laporan !!}
                             </p>
@@ -64,11 +57,8 @@
                                     <div class="btn btn-danger col-sm-2">Ditolak</div>
                                 @endif
                                 &emsp;
-                                <a class="btn btn-warning col-sm-2"
+                                <a onclick="return confirm('Apakah anda yakin?') " class="btn btn-warning col-sm-2"
                                     href="laporan-masalah/hapus-laporan/{{ $p->id_laporan }}">Hapus</a>
-
-
-
                             </div>
 
                         </div>
