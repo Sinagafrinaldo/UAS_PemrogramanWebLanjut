@@ -16,14 +16,14 @@ class HomeController extends Controller
     public function index (){
         $literasi = DB::table('literasi')
 		->orderby('waktu_post' , 'desc')
-		->paginate(3)->onEachSide(0);
+		->paginate(10)->onEachSide(0);
  
         return view('dashboard.home',['literasi' => $literasi] ); 
     }
     public function users (){
         $users = DB::table('users')
 		->orderby('created_at' , 'desc')
-		->paginate(3)->onEachSide(0);
+		->paginate(15)->onEachSide(0);
 
         return view('dashboard.data-user',['users' => $users] ); 
     }
@@ -44,7 +44,7 @@ class HomeController extends Controller
 		->orwhere('isi','like',"%".$cari."%")
 		->orwhere('kategori','like',"%".$cari."%")
 		->orderby('waktu_post' , 'desc')
-		->paginate(3)->withQueryString()->onEachSide(0);
+		->paginate(10)->withQueryString()->onEachSide(0);
 
 	return view('dashboard.home',['literasi' => $literasi] ); 
 
@@ -58,7 +58,7 @@ class HomeController extends Controller
 	}
     public function postingan(Request $request)
 	{
-	$literasi = DB::table('literasi')->where('id_literasi',$request->id_literasi)->get();
+	$literasi = DB::table('literasi')->where('slug',$request->slug)->get();
 		return view('dashboard.postingan',['literasi' => $literasi]);
 	}
     public function edit($id_literasi)
@@ -106,7 +106,7 @@ class HomeController extends Controller
 	public function laporan (){
         $laporan = DB::table('request_laporan')
 		->orderby('waktu' , 'desc')
-		->paginate(3)->onEachSide(0);
+		->paginate(10)->onEachSide(0);
 
         return view('dashboard.laporan-masalah',['laporan' => $laporan] ); 
     }
