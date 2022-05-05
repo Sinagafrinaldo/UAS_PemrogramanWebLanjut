@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 class LiterasiController extends Controller
 {
-    //
+    /
     public function index()
     {
     	$literasi = DB::table('literasi')
@@ -184,7 +184,9 @@ class LiterasiController extends Controller
 	}
 	public function riwayat_laporan(Request $request)
 	{
-	$riwayat = DB::table('request_laporan')->get();
+	$riwayat = DB::table('request_laporan')
+		->orderby('waktu' , 'desc')
+		->paginate(10)->onEachSide(0);
 		return view('riwayat-laporan',['riwayat' => $riwayat]);
 	}
 	public function hapus_laporan($id_laporan)
