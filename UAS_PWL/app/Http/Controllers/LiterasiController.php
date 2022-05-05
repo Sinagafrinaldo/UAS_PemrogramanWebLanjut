@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 class LiterasiController extends Controller
 {
-    /
+    
     public function index()
     {
     	$literasi = DB::table('literasi')
