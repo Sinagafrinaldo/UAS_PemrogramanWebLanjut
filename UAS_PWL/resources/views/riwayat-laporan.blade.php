@@ -48,7 +48,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -78,33 +78,26 @@
                         <div class="shadow p-3 mb-5 bg-white rounded" style="margin-top: -12">
                             <div class="card border-0">
                                 <div class="row justify-content-start">
-
-                                    <div class="col-md align-self-center" style="padding:30px">
-                                        <h4 class="card-title">{{ $p->judul_laporan }}</h4>
-                                        <hr>
-                                        {{-- <h6 class="card-category">{{ $p->kategori_request }}</h6> --}}
-                                        <p class="text-justify">
-                                            {!! $p->isi_laporan !!}
-                                        </p>
-
+                                    <div class="col-md-3 align-self-center">
                                         @if ($p->image_laporan != null)
-                                            <strong>Lampiran:</strong><br><br>
-                                            <div class="rounded">
+                                            <div class="rounded float-left">
                                                 <img src="/img/upload-laporan/{{ $p->image_laporan }}"
-                                                    class="card-img-top img-sm-thumbnail border-0"
-                                                    style="width: 50%; height:50%" alt="...">
+                                                    class="card-img-top img-sm-thumbnail border-0" alt="...">
                                             </div>
                                         @endif
-                                        <hr>
+                                    </div>
+
+                                    <div class="col-md-9 align-self-center">
+                                        <h4 class="card-title">{{ $p->judul_laporan }}</h4>
+                                        {{-- <h6 class="card-category">{{ $p->kategori_request }}</h6> --}}
+                                        <p style="text-align:justify" class="card-text">{!! $p->isi_laporan !!}
+                                        </p>
+
                                         <div class="row">
                                             <div class="col-md-9">
-                                                <p>Oleh: {{ $p->name }}</p>
-                                                <p>Waktu: {{ $p->waktu }}</p>
+                                                <p>Oleh: {{ $p->name }}, {{ $p->waktu }}</p>
                                             </div>
-
-                                        </div>
-                                        <div class="row justify-content-center ">
-                                            <div>
+                                            <div class="col ms-auto">
                                                 @if ($p->status == 'Belum Ditanggapi')
                                                     <div class="btn btn-secondary">Belum Ditanggapi</div>
                                                 @elseif($p->status == 'Diterima')
@@ -112,12 +105,11 @@
                                                 @elseif($p->status == 'Ditolak')
                                                     <div class="btn btn-danger">Ditolak</div>
                                                 @endif
-                                            </div> &emsp;
-                                            <a onclick="return confirm('Apakah anda yakin?') "
-                                                class="btn btn-danger col-sm-0"
+                                            </div>
+                                            <a class="btn btn-warning col-sm-0"
                                                 href="riwayat-laporan/hapus-laporan/{{ $p->id_laporan }}">Hapus</a>
-                                        </div>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +118,7 @@
                 @endforeach
             </div>
             <div class="pagin">
-                {{ $riwayat->links() }}
+                {{-- {{ $riwayat->links() }} --}}
             </div>
 
         </div>

@@ -22,8 +22,5 @@
         @endforeach
 
     </table>
-
-    <div class="pagination justify-content-center">
-        {{ $users->links() }}
-    </div>
+    {{ $users->links() }}
 @endsection

@@ -18,35 +18,24 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href={{ asset('vendor/css/styles.css') }} rel="stylesheet" />
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+     <!-- Styles -->
+     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 </head>
 
-<body style="background-color:#F6F6F6; ">
+<body style="background-color:#F6F6F6">
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
-        <div class="border-end " id="sidebar-wrapper" style="background-color: #1c70bd; ">
-            <div class="sidebar-heading border-bottom bg-light" style="border: 1px solid #1c70bd;">
-                <a href="
-                    {{ route('admin.home') }}">
-                    <img src="/assets/images/logo.svg" width="185px" height="40px">
-                </a>
-            </div>
-
-
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light"><strong>LiterasiKuy</strong></div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action text-white  p-3" href="
-                    {{ route('admin.home') }}" style="background-color: #1c70bd">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="
+                    {{ route('admin.home') }}">
                     Data Post
                 </a>
-                <a class="list-group-item list-group-item-action text-white p-3" href="{{ route('admin.users') }}"
-                    style="background-color: #1c70bd">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                    href="{{ route('admin.users') }}">
                     User
-                </a>
-                <a class="list-group-item list-group-item-action text-white p-3"
-                    href="{{ route('admin.laporan-masalah') }}" style="background-color: #1c70bd">
-                    Laporan Masalah
                 </a>
 
             </div>
@@ -63,7 +52,7 @@
                             class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-
+                            <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
