@@ -95,7 +95,7 @@
                             </div>
                             <div class="post-thumbnail">
                                 <div>
-                                    <img src="/img/uploads/{{ $p->image }}" class="img-fluid mx-auto d-block" alt="...">
+                                    <img src="/uploads/{{ $p->image }}" class="img-fluid mx-auto d-block" alt="...">
                                 </div>
                             </div>
                             <div class="row justify-content-center">
