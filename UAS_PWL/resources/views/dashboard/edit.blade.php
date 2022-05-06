@@ -38,7 +38,7 @@
                             <span class="text-danger">{{ $message }}; </span>
                         @enderror
                         <br><br>
-                        <img src="/img/uploads/{{ $p->image }}" class="card-img-top" style="width:20%; height: 20%;"
+                        <img src="/uploads/{{ $p->image }}" class="card-img-top" style="width:20%; height: 20%;"
                             alt="...">
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label"><strong>Isi</strong></label>
