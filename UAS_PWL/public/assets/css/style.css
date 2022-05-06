@@ -36,6 +36,8 @@ a.menu-link {text-decoration: none;color: #1F76C6;}
 
 .ready-post {padding: 5px 25px;}
 
+.img-kategori { filter: brightness(0) invert(1); }
+
 @media (max-width: 540px) {
 	.nav-menu {align-items: flex-start;}
 
