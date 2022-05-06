@@ -38,7 +38,7 @@ Route::get('/tambah', function()
 
 Route::get('/cari','App\Http\Controllers\LiterasiController@cari');
 Route::get('/cari2','App\Http\Controllers\LiterasiController@cari2');
-Route::get('/home','App\Http\Controllers\LiterasiController@home');
+Route::get('/home','App\Http\Controllers\LiterasiController@index');
 Route::get('/kategori/puisi','App\Http\Controllers\LiterasiController@puisi');
 Route::get('/kategori/cerpen','App\Http\Controllers\LiterasiController@cerpen');
 Route::get('/kategori/cerita_rakyat','App\Http\Controllers\LiterasiController@cerita_rakyat');
