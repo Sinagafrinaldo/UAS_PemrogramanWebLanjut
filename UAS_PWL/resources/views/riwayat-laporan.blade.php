@@ -92,7 +92,7 @@
                                         @if ($p->image_laporan != null)
                                             <strong>Lampiran:</strong><br><br>
                                             <div class="rounded">
-                                                <img src="/img/upload-laporan/{{ $p->image_laporan }}"
+                                                <img src="/upload-laporan/{{ $p->image_laporan }}"
                                                     class="card-img-top img-sm-thumbnail border-0"
                                                     style="width: 50%; height:50%" alt="...">
                                             </div>
