@@ -42,7 +42,7 @@
                                     <p>Oleh: {{ $p->name }}, {{ $p->waktu_post }}</p>
                                 </div>
                                 <div class="col ms-auto">
-                                    <a href="/postingan/{{ $p->slug }}">Baca Selengkapnya >>></a>
+                                    <a href="postingan/{{ $p->slug }}">Baca Selengkapnya >>></a>
                                 </div>
                             </div>
                         </div>
