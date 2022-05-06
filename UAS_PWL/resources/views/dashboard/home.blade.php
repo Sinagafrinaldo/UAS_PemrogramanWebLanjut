@@ -1,3 +1,5 @@
+<link rel="shortcut icon" href="/assets/images/icon.svg" type="image/x-icon">
+<title>Dashboard Admin || LiterasiKUY</title>
 @extends('layouts._dashboard.app')
 
 @section('content')
