@@ -1,3 +1,5 @@
+<link rel="shortcut icon" href="/assets/images/icon.svg" type="image/x-icon">
+<title>Data User || LiterasiKUY</title>
 @extends('layouts._dashboard.app')
 
 @section('content')
