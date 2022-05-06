@@ -85,7 +85,7 @@ class HomeController extends Controller
 		$img = $request->file('image');
 		$ext = $img->getClientOriginalExtension();
 		$name =  $request->image->getClientOriginalName();
-		$path = public_path('\img\uploads');
+		$path = public_path('uploads');
 		$img->move($path, $name);
 		DB::table('literasi')->where('id_literasi',$request->id_literasi)->update([
 			'judul' => $request->judul,
