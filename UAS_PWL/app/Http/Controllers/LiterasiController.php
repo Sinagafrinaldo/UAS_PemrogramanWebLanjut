@@ -43,7 +43,7 @@ class LiterasiController extends Controller
 		$img = $request->file('image');
         $ext = $img->getClientOriginalExtension();
         $name =  $request->image->getClientOriginalName();
-        $path = public_path('\img\uploads');
+        $path = public_path('uploads');
         $img->move($path, $name);
 		$content = $request->input('isi');
 		$slug =  Str::slug($request->judul,"-");
@@ -161,7 +161,7 @@ class LiterasiController extends Controller
 			$img = $request->file('image');
 			$ext = $img->getClientOriginalExtension();
 			$name =  $request->image->getClientOriginalName();
-			$path = public_path('\img\upload-laporan');
+			$path = public_path('upload-laporan');
 			$img->move($path, $name);
 			DB::table('request_laporan')->insert([
 				'judul_laporan' => $request->judul,
