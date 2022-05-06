@@ -1,13 +1,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<link rel="shortcut icon" href="/assets/images/icon.svg" type="image/x-icon">
+<title>Hasil Kategori || LiterasiKUY</title>
 @extends('layouts.app')
 
 @section('content')
     <nav class="navbar navbar-expand-sm navbar-light navbar-literasi bg-white shadow-sm">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{-- {{ config('app.name', 'Laravel') }} SDFSDF --}}
-            <img src="assets/images/logo.svg" width="185px" height="40px">
+            <img src="/assets/images/logo.svg" width="185px" height="40px">
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -43,7 +44,7 @@
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
