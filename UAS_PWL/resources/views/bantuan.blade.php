@@ -71,7 +71,7 @@
             </div>
             @guest
             @else
-                <div class="row justify-content-between">
+                <div class="row justify-content-between m-0">
                     <div>
                         <a class="btn btn-post" href="/lapor-masalah" role="button">Laporkan Masalah</a>
                     </div>
