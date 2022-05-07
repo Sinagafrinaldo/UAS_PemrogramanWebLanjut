@@ -62,70 +62,75 @@
         </div>
     </nav>
 
-    <div class="text-center" style="background-color: #E8F4FF; color: #1F76C6; margin-top: -40px;">
-        <h1 style="padding: 30px">Kategori
-            <hr width="40%" margin="auto">
-        </h1>
 
-    </div>
-    <div class="container">
-        <div class="row justify-content-center" style="margin-bottom: 50px;">
-
-            <div class="content-kategori row">
-                <div class="list-kategori btn btn-primary col-lg-3 py-4 "
-                    style="margin-bottom: 20px; background-color: #33beb7; border: none">
-                    <a href="/kategori/puisi" class="text-white"><img class="img-kategori" src="assets/icon/puisi.png"
-                            width="35px"><br>Puisi</a>
-                </div>
-                <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4"
-                    style="margin-bottom: 20px; background-color:#f66320; border: none">
-                    <a href="/kategori/cerpen" class="text-white"><img class="img-kategori"
-                            src="assets/icon/cerpen.png" width="35px"><br>Cerita Pendek</a>
-                </div>
-                <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4"
-                    style="margin-bottom: 20px; background-color: #b2c224; border: none">
-                    <a href="/kategori/cerita_rakyat" class="text-white"><img class="img-kategori"
-                            src="assets/icon/rakyat.png" width="35px"><br>Cerita Rakyat</a>
-                </div>
-
-                <div class="list-kategori btn btn-primary col-lg-3 py-4"
-                    style="margin-bottom: 20px; background-color:#b2c224; border: none">
-                    <a href="/kategori/dongeng" class="text-white"><img class="img-kategori"
-                            src="assets/icon/dongeng.png" width="35px"><br>Dongeng</a>
-                </div>
-                <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4"
-                    style="margin-bottom: 20px; background-color:#f8a227; border: none">
-                    <a href="/kategori/kesehatan" class="text-white"><img class="img-kategori"
-                            src="assets/icon/kesehatan.png" width="35px"><br>Kesehatan</a>
-                </div>
-                <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4"
-                    style="margin-bottom: 20px;background-color:#a364d9; border: none">
-                    <a href="/kategori/sport" class="text-white"><img class="img-kategori"
-                            src="assets/icon/olahraga.png" width="35px"><br>Sport</a>
+    <div class="container" style="margin-top: -20;margin-bottom: -25">
+        <div class="shadow p-4 mb-5 bg-white rounded">
+            <div class="text-center" style="color: #1F76C6;">
+                <h1 style="padding: 10px"><strong>Kategori</strong>
+                    <hr width="50%" margin="auto">
+                </h1>
+            </div>
+            
+            <div class="container">
+                <div class="row justify-content-center mb-3">
+                    <div class="list-kategori btn btn-primary col-lg-3 py-4 "
+                        style="margin-bottom: 20px; background-color: #33beb7; border: none">
+                        <a href="/kategori/puisi" class="text-white"><img class="img-kategori" src="assets/icon/puisi.png"
+                                width="35px"><br>Puisi</a>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="list-kategori btn btn-primary col-lg-3 py-4"
+                        style="margin-bottom: 20px; background-color:#f66320; border: none">
+                        <a href="/kategori/cerpen" class="text-white"><img class="img-kategori"
+                                src="assets/icon/cerpen.png" width="35px"><br>Cerita Pendek</a>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="list-kategori btn btn-primary col-lg-3 py-4"
+                        style="margin-bottom: 20px; background-color: #b2c224; border: none">
+                        <a href="/kategori/cerita_rakyat" class="text-white"><img class="img-kategori"
+                                src="assets/icon/rakyat.png" width="35px"><br>Cerita Rakyat</a>
+                    </div>
                 </div>
 
-                <div class="list-kategori btn btn-primary col-lg-3 py-4"
-                    style="margin-bottom: 20px;background-color:#db3937;  border: none">
-                    <a href="/kategori/review_buku" class="text-white"><img class="img-kategori"
-                            src="assets/icon/review.png" width="35px"><br>Review Buku</a>
+                <div class="row justify-content-center mb-3">
+                    <div class="list-kategori btn btn-primary col-lg-3 py-4"
+                        style="margin-bottom: 20px; background-color:#b2c224; border: none">
+                        <a href="/kategori/dongeng" class="text-white"><img class="img-kategori"
+                                src="assets/icon/dongeng.png" width="35px"><br>Dongeng</a>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="list-kategori btn btn-primary col-lg-3 py-4"
+                        style="margin-bottom: 20px; background-color:#f8a227; border: none">
+                        <a href="/kategori/kesehatan" class="text-white"><img class="img-kategori"
+                                src="assets/icon/kesehatan.png" width="35px"><br>Kesehatan</a>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="list-kategori btn btn-primary col-lg-3 py-4"
+                        style="margin-bottom: 20px;background-color:#a364d9; border: none">
+                        <a href="/kategori/sport" class="text-white"><img class="img-kategori"
+                                src="assets/icon/olahraga.png" width="35px"><br>Sport</a>
+                    </div>
                 </div>
-                <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4"
-                    style="margin-bottom: 20px;background-color:#ee6579; border: none">
-                    <a href="/kategori/fantasi" class="text-white"><img class="img-kategori"
-                            src="assets/icon/fantasi.png" width="35px"><br>Fantasi</a>
+                
+                <div class="row justify-content-center">
+                    <div class="list-kategori btn btn-primary col-lg-3 py-4"
+                        style="margin-bottom: 20px;background-color:#db3937;  border: none">
+                        <a href="/kategori/review_buku" class="text-white"><img class="img-kategori"
+                                src="assets/icon/review.png" width="35px"><br>Review Buku</a>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="list-kategori btn btn-primary col-lg-3 py-4"
+                        style="margin-bottom: 20px;background-color:#ee6579; border: none">
+                        <a href="/kategori/fantasi" class="text-white"><img class="img-kategori"
+                                src="assets/icon/fantasi.png" width="35px"><br>Fantasi</a>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="list-kategori btn btn-primary col-lg-3 py-4"
+                        style="margin-bottom: 20px;background-color:#2992c2; border: none">
+                        <a href="/kategori/fashion" class="text-white"><img class="img-kategori"
+                                src="assets/icon/fashion.png" width="35px"><br>Fashion</a>
+                    </div>
                 </div>
-                <div class="col-sm-1"></div>
-                <div class="list-kategori btn btn-primary col-lg-3 py-4"
-                    style="margin-bottom: 20px;background-color:#2992c2; border: none">
-                    <a href="/kategori/fashion" class="text-white"><img class="img-kategori"
-                            src="assets/icon/fashion.png" width="35px"><br>Fashion</a>
-                </div>
-
             </div>
         </div>
     </div>
