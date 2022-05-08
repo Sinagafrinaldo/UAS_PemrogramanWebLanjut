@@ -44,7 +44,7 @@
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
@@ -58,10 +58,10 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style=" min-height: 70%">
         <div class="row">
             <div class="col-md-12 col-lg-12">
-                <div class="row action-page" style="margin-top: -20">
+                <div class="row action-page" style="margin-top: -20;">
                     @guest
                     @else
                         <div class="col-12 col-md-4">
