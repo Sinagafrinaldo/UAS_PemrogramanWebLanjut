@@ -38,6 +38,8 @@ a.menu-link {text-decoration: none;color: #1F76C6;}
 
 .img-kategori { filter: brightness(0) invert(1); }
 
+.ck p {height: 250px;}
+
 @media (max-width: 540px) {
 	.nav-menu {align-items: flex-start;}
 
