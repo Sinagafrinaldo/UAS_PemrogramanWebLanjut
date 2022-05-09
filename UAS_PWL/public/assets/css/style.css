@@ -40,6 +40,8 @@ a.menu-link {text-decoration: none;color: #1F76C6;}
 
 .ck-editor .ck {height: 300px;}
 
+.dropdown-menu.dropdown-menu-end.show {margin-top: 8px;}
+
 @media (max-width: 540px) {
 	.nav-menu {align-items: flex-start;}
 
